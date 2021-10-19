@@ -16,7 +16,7 @@
             <b>{{forloop.counter}}.</b> </h1 class="text-info">{{quiz.title}}</h1><br><br>
             
             {% for ans in quiz.answers.all %}
-            <input type="radio" value="{{ans.id}}" name="answer"><span> 
+            <input type="radio" value="{{ans.id}}" name="quiz_id_{{ quiz.id }}"><span> 
                 
                 {% if ans.image %}
                     <img src="{{ans.image.url}}" style="height: 150px;" alt="">

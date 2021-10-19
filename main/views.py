@@ -1,7 +1,7 @@
 from typing import ContextManager
 from django.shortcuts import render, redirect
 from django.views import View
-
+from django.core.paginator import Paginator
 from main.models import Quizzes, User, Ways
 
 # Create your views here.
@@ -37,10 +37,14 @@ def ways(request):
     return render(request, 'ways.html', context)
 
 
+
 def quiz(request, slug):
     ways = Ways.objects.get(slug=slug)
     quizz = Quizzes.objects.filter(ways=ways)
+    # paginator = Paginator(quizz,1)
+    # page_number = request.GET.get('page')
+    # quizz = paginator.get_page(page_number)
     context = {
-        'quiz':quizz,
-    }
+    'quiz':quizz,
+    }  
     return render(request, 'tests.html', context)
