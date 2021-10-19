@@ -44,7 +44,11 @@ def quiz(request, slug):
     # paginator = Paginator(quizz,1)
     # page_number = request.GET.get('page')
     # quizz = paginator.get_page(page_number)
+
     context = {
     'quiz':quizz,
-    }  
+    }
+    for i in quizz:
+        if i == True:
+            i+=User.true_a
     return render(request, 'tests.html', context)

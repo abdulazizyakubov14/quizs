@@ -12,6 +12,7 @@
         <h2 class="text-white">Savollar({{quiz.count}})</h2>
         <hr>
         <form action="" method="post">
+            {% csrf_token %}
         {% for quiz in quiz %}
             <b>{{forloop.counter}}.</b> </h1 class="text-info">{{quiz.title}}</h1><br><br>
             
@@ -29,7 +30,7 @@
                 
         {% endfor %}
         <br>
-        <a href="#" style="" class="btn btn-info mb-4"><h4>Tasdiqlash</h4></a>
+        <button type="submit" class="btn btn-info mb-3"> Tasdiqlash</button>
         
         
     </form>
