@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Let's Quiz | Welcome {% endblock title %}
+{% block content %}
+<div class="container my-4">
+    <div class="jumbotron">
+
+	      <h2 class="text-center text-info">Tabriklayman !! Siz muvaffaqiyatli kirdingiz.</h2>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4">
+                <div class="card-body text-info">
+                    <h4 class="card-title">Qoidalar:
+                        </h4>
+                    <p class="card-text">
+                        <ul style="list-style:decimal;">
+                            <li>Barcha savollar ko'p tanlovli savol.</li>
+                            <li><span class="text-danger">Faqat bitta tanlov to'g'ri.</span></li>
+                            <li>Har bir savol bir xil bahoga ega, ya'ni<span class="text-danger">har bir savol uchun 4 ball.</span>
+                            </li>
+                            <li>Har bir savol har bir foydalanuvchi uchun bir marta ko'rsatiladi.</li>
+                            <li>Iloji boricha tezroq javob berishga harakat qiling.</li>
+                            <li>Agar siz yangilash tugmachasini bossangiz yoki oldingi sahifaga qaytsangiz, siz uchun yangi savol paydo bo'ladi va siz bergan savol urinilgan deb hisoblanadi.
+                            </li>
+                            <li>Savollar har bir foydalanuvchi uchun tasodifiy ko'rsatiladi.
+                            </li>
+                            <li>Javobni yuborganingizdan so'ng sizga javobingiz to'g'rimi yoki noto'g'ri ekanligi darhol aytiladi.
+                            </li>
+                        </ul>
+                    </p>
+                    <a href="{% url 'quiz:play' %}" class="btn btn-info">Testni Boshlash</a>
+                </div>  
+                <div class="card-footer">Yoshlar texnoparki Oktabr/2021</div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+{% endblock content %}

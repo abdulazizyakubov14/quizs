@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <style>
+    body{
+      /* background-image: url('/lets_quiz/static/images/background.png'); */
+      background-color: red;
+    }
+  </style>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ss</title>
+
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rubik" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rubik" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+</head>
+<style>
+  body{
+    background-image: url('http://imomiazam.pythonanywhere.com/media/Maqolalar_rasmi/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<body >
+
+<br><br>
+
+    <section id="section-jumbotron" class="">
+      <div class="container ">
+        <nav>
+          <img class="m5" src="http://imomiazam.pythonanywhere.com/media/Maqolalar_rasmi/logo.png" width="200" height="70" alt="">
+        </nav>
+<br><br><br><br><br><br>
+        <h1 class="mt-5" style="font-family: Canaro SemiBold; font-size:42px; color: #fff; ">Innovatorlar va innovatsiyalar <br>
+          ishlab chiqaruvchi maydon</h1>
+        {% if not request.user.is_active %}
+
+        <a href="{% url 'quiz:register' %}" style="border-radius: 30px; width: 300px;" class="btn btn-info mt-5"><h4 class="">Testni Boshlash</h4></a>
+        {% else %}
+        <a href="{% url 'quiz:register' %}" style="border-radius: 30px; width: 300px;" class="btn btn-info mt-5"><h4 class="">Natijalartni ko'rish</h4></a>
+        <!-- <a href="{% url 'quiz:leaderboard' %}" class="btn btn-lg btn-info mt-1">Leaderboard</a> -->
+        {% endif %}
+      </div>  
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/12.1.5/js/smooth-scroll.min.js" integrity="sha256-MMt0/21G3z0Zg4ET1kI3HC9npItDowkitRDVr0FhCxA=" crossorigin="anonymous"></script>
+
+    <!-- <script src="{% static 'js/main.js' %}"></script>
+    {% block js %}{% endblock js %} -->
+</body>
+</html>
