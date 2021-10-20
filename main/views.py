@@ -15,8 +15,11 @@ class FirstView(View):
 
 class Register(View):
     def get(self, request):
-        if request.session['user_id']:
-            return redirect('/ways')
+        try:
+            if request.session['user_id']:
+                return redirect('/ways')
+        except:
+            pass
         return render(request, 'register.html')
     def post(self, request):
         if request.method == 'POST':
@@ -77,3 +80,16 @@ def answer(request):
         user.false_a.add(quiz)
     
     return JsonResponse({'status':'true'})
+
+
+def results(request):
+    user_id = request.session['user_id']
+    user = User.objects.get(id=user_id)
+    context = {
+        'user':user
+    }
+    return render(request, 'results.html', context)
+
+def del_session(request):
+    request.session.clear()
+    return redirect('/')

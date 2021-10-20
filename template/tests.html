@@ -13,7 +13,7 @@
 
 
 
-    <div class="container mt-5">
+    <div class="container p-5 mt-5">
         <h2 class="text-white">Savollar({{quiz.count}})</h2>
         <hr>
         <form action="" method="post">
@@ -38,7 +38,8 @@
         {% endfor %}
         
     </form>
-            
+    <hr>
+    <a href="{% url 'main:results' %}" class="btn btn-light">Tasdiqlash</a> 
     </div>
     <script src="/media/myplugs.js"></script>
 {% endblock style %}

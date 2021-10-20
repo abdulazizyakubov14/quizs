@@ -8,5 +8,7 @@ urlpatterns = [
     path("register/", Register.as_view(), name="register"),
     path("ways/", ways, name="ways"),
     path("quiz/<slug>", quiz, name="main"),
-    path("answer/", answer, name="answer")
+    path("answer/", answer, name="answer"),
+    path("results/", results, name="results"),
+    path("delete_session/", del_session, name="del_session")
 ]
