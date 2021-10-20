@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% block style %}
+<style>
+    .container{
+        background: rgb(255, 255, 255,0.5);
+        border-radius: 10px 10px 0 0 ;
+        width: 60%;
+    }
+</style>
+<script src="/media/jquery-1.11.0.min.js"></script>
+
+
+
+
+    <div class="container mt-5">
+        <h2 class="text-white">Savollar({{quiz.count}})</h2>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+        {% for quiz in quiz %}
+             <h3 class=""><b>{{forloop.counter}}.</b>{{quiz.title}}</h3>
+            
+             <div class="btn-group">
+            {% for ans in quiz.answers.all %}
+                <span class="btn btn-success answer" data-user="{{user}}" data-id="{{ans.id}}" data-quiz="{{quiz.id}}">
+                    {% if ans.image %}
+                    <img src="{{ans.image.url}}" style="height: 150px;" alt="">
+                    {% else %}
+                    {{ans.title}}
+                    {% endif %}
+                    
+                </span><br><br>
+                {% endfor %}
+            </div>
+                
+            <br><br><br>
+        {% endfor %}
+        
+    </form>
+            
+    </div>
+    <script src="/media/myplugs.js"></script>
+{% endblock style %}
+    
