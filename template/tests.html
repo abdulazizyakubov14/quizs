@@ -2,30 +2,44 @@
 
 {% block style %}
 <style>
+
     .container{
         background: rgb(255, 255, 255,0.5);
         border-radius: 10px 10px 0 0 ;
         width: 60%;
+        z-index: 10;
     }
+
+    .text{
+        padding: 15px;
+        background: seashell;
+        border-radius: 50px;
+    }
+
+    input[type="radio"]{
+        width: 35px;
+        height: 35px;
+    }
+
 </style>
-    <div class="container mt-5">
-        <h2 class="text-white">Savollar({{quiz.count}})</h2>
+    <div class="container mt-5 text-center">
+        <h1 class="text-white m-2">Savollar({{quiz.count}})</h1>
         <hr>
-        <form action="" method="post">
+        <form action="{% url 'main:check' %}" method="post">
             {% csrf_token %}
         {% for quiz in quiz %}
-            <b>{{forloop.counter}}.</b> </h1 class="text-info">{{quiz.title}}</h1><br><br>
+           <h2 class="text"> {{forloop.counter}} .{{quiz.title}}</h2><br><br>
             
             {% for ans in quiz.answers.all %}
-            <input type="radio" value="{{ans.id}}" name="quiz_id_{{ quiz.id }}"><span> 
-                
+            
                 {% if ans.image %}
                     <img src="{{ans.image.url}}" style="height: 150px;" alt="">
                     {% else %}
-                    {{ans.title}}
+                    <p></p>
                 {% endif %}
+            <h3> <input type="radio" value="{{ans.id}}" name="{{ quiz.id }}">  {{ans.title}}</h3>
                     
-            </span><br><br>
+           <br><br>
             {% endfor %}
                 
         {% endfor %}

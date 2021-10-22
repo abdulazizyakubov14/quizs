@@ -4,8 +4,9 @@
 <style>
     body{
         background-image: url('/media/answers_img/background.png');
-        background-size:130%;
+        background-size:cover;
         background-repeat: no-repeat;
+       
     }
 </style>
 <head>
@@ -26,7 +27,12 @@
             innovatsiyalar <br> ishlab
             chiqaruvchi maydon</h1>
         <p style="font-weight: bolder;" class="text-white"> Online testdan o'ting va <span class="text-">Grand</span> kursimizda o'qing</p>
+     {% if request.user.is_superuser %}       
+        <a href="{% url 'main:view_results' %}" style="border-radius: 30px; width: 300px;" class="btn btn-info mt-5"><h4 class="">Natijalarni ko'rish</h4></a>
+    {% endif %}    
         <a href="{% url 'main:register' %}" style="border-radius: 30px; width: 300px;" class="btn btn-info mt-5"><h4 class="">Testni Boshlash</h4></a>
+   
+   
     </div>
         
     {% endblock style %}
